@@ -1,0 +1,13 @@
+vc100
+vc110
+vc120
+vc140
+vc141
+.vs
+**/*.dir
+**/*.sdf
+**/*.VC.db
+**/ipch*
+**/*.obj
+**/*.lib
+**/*.exp
