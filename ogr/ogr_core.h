@@ -396,6 +396,9 @@ typedef enum
     wkbTINZM = 3016,                /**< ISO SQL/MM Part 3. Reserved in GDAL &gt;= 2.1 but not yet implemented */
     wkbTriangleZM = 3017,           /**< ISO SQL/MM Part 3. Reserved in GDAL &gt;= 2.1 but not yet implemented */
 
+	wkbRelTabZip = 6001,
+	wkbRelTabXml = 6002,
+
     wkbPoint25D = 0x80000001, /**< 2.5D extension as per 99-402 */
     wkbLineString25D = 0x80000002, /**< 2.5D extension as per 99-402 */
     wkbPolygon25D = 0x80000003, /**< 2.5D extension as per 99-402 */
