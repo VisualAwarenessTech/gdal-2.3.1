@@ -17,3 +17,4 @@ vc141
 **/*.ilk
 **/*.jar
 *.pdb
+swig/setup.ini
