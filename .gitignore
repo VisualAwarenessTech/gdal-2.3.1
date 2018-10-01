@@ -3,6 +3,8 @@ vc110
 vc120
 vc140
 vc141
+x64
+config.opt
 .vs
 **/*.dir
 **/*.sdf
