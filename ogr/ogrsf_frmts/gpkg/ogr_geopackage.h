@@ -202,10 +202,10 @@ class GDALGeoPackageDataset final : public OGRSQLiteBaseDataSource, public GDALG
                                         GetNameTypeMapFromSQliteMaster();
         void RemoveTableFromSQLiteMasterCache(const char* pszTableName);
 
+		const std::map< CPLString, std::vector<GPKGExtensionDesc> > & GetExtensions();
+
         bool                    m_bMapTableToExtensionsBuilt;
         std::map< CPLString, std::vector<GPKGExtensionDesc> > m_oMapTableToExtensions;
-        const std::map< CPLString, std::vector<GPKGExtensionDesc> > &
-                                        GetExtensions();
 
         bool                    m_bMapTableToContentsBuilt;
         std::map< CPLString, GPKGContentsDesc > m_oMapTableToContents;
@@ -222,7 +222,9 @@ class GDALGeoPackageDataset final : public OGRSQLiteBaseDataSource, public GDALG
                             GDALGeoPackageDataset();
                             virtual ~GDALGeoPackageDataset();
 
-        virtual char **     GetMetadata( const char *pszDomain = nullptr ) override;
+// temperary public
+
+		virtual char **     GetMetadata( const char *pszDomain = nullptr ) override;
         virtual const char *GetMetadataItem( const char * pszName,
                                              const char * pszDomain = "" ) override;
         virtual char **     GetMetadataDomainList() override;
