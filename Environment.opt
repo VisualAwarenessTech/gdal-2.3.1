@@ -1,5 +1,5 @@
 BASE64_DIR=libb64-1.2
-BOOST_DIR=K:\Development\3rd_Party\boost_1_67_0\
+BOOST_DIR=$(BOOST_DIR)
 CAIRO_DIR=cairo-1.12.16
 CARES_DIR=c-ares-1.10.0
 CITYGML_DIR=libcitygml-0.1.4
