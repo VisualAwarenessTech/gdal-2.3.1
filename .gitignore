@@ -77,3 +77,4 @@ swig/java/org/gdal/osr/osrConstants.java
 swig/java/org/gdal/osr/osrJNI.java
 swig/java/org/gdal/osr/SpatialReference.java
 makegdal14.VC.VC.opendb
+Environment.opt
