@@ -943,19 +943,20 @@ int GDALGeoPackageDataset::Open( GDALOpenInfo* poOpenInfo )
             return FALSE;
 
 
-	if ((poOpenInfo->nOpenFlags & GDAL_OF_VECTOR) && (poOpenInfo->nOpenFlags & GDAL_OF_GPKG_FASTACCESS))
-	{
-		int r1 = sqlite3_exec(hDB, "PRAGMA synchronous = OFF", NULL, NULL, NULL);
-		if(r1)
-			CPLError(CE_Warning, CPLE_AppDefined, "pragma set of synchronous to off failed on '%s'",
+//		if ((poOpenInfo->nOpenFlags & GDAL_OF_VECTOR) && (poOpenInfo->nOpenFlags & GDAL_OF_GPKG_FASTACCESS))
+		if (poOpenInfo->nOpenFlags & GDAL_OF_GPKG_FASTACCESS)
+			{
+			int r1 = sqlite3_exec(hDB, "PRAGMA synchronous = OFF", NULL, NULL, NULL);
+			if(r1)
+				CPLError(CE_Warning, CPLE_AppDefined, "pragma set of synchronous to off failed on '%s'",
+						m_pszFilename);
+
+			int r2 = sqlite3_exec(hDB, "PRAGMA journal_mode = OFF", NULL, NULL, NULL);
+			if(r2)
+				CPLError(CE_Warning, CPLE_AppDefined, "pragma set journal_mode to MEMORY failed on '%s'",
 					m_pszFilename);
 
-		int r2 = sqlite3_exec(hDB, "PRAGMA journal_mode = OFF", NULL, NULL, NULL);
-		if(r2)
-			CPLError(CE_Warning, CPLE_AppDefined, "pragma set journal_mode to MEMORY failed on '%s'",
-				m_pszFilename);
-
-	}
+		}
 
         memcpy(&m_nApplicationId, pabyHeader + knApplicationIdPos, 4);
         m_nApplicationId = CPL_MSBWORD32(m_nApplicationId);
@@ -3503,7 +3504,8 @@ int GDALGeoPackageDataset::Create( const char * pszFilename,
                         : SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE) )
         return FALSE;
 
-	if ((nBandsIn == 0) && CPLTestBool(CSLFetchNameValueDef(papszOptions, "GPKG_Fast", "NO")))
+//	if ((nBandsIn == 0) && CPLTestBool(CSLFetchNameValueDef(papszOptions, "GPKG_Fast", "NO")))
+	if (CPLTestBool(CSLFetchNameValueDef(papszOptions, "GPKG_Fast", "NO")))
 	{
 		int r1 = sqlite3_exec(hDB, "PRAGMA synchronous = OFF", NULL, NULL, NULL);
 		if (r1)
