@@ -4,19 +4,25 @@ Copy Requred .opt files (I.E.) opt files not in new directory that are in workin
 	Config32_vs2010.opt
 	Config32_vs2012.opt
 	Config32_vs2015.opt
+	Config32_vs2017.opt
 	Config64.opt
 	Config64_vs2010.opt
 	Config64_vs2012.opt
 	Config64_vs2015.opt
+	Config64_vs2017.opt
 	Environment.opt
 	GAJ_Ent_MergeNewGdal.txt
 Copy Required .bat files
 	Set32Bit.bat
 	Set32Bit_vs2010.bat
 	Set32Bit_vs2012.bat
+	Set32Bit_vs2015.bat
+	Set32Bit_vs2017.bat
 	Set64Bit.bat
 	Set64Bit_vs2010.bat
 	Set64Bit_vs2012.bat
+	Set64Bit_vs2015.bat
+	Set64Bit_vs2017.bat
 	MakeBuildDirectories.bat
 
 Check existing sln files (makegal10.sln) for any changes and merge or update from working directory (makegdal11.sln makegdal12.sln)
